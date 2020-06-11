@@ -30,7 +30,17 @@ services:
       - "27017:27017"
     volumes:
      - my-mongo:/data/db
+  redis:
+    image: redis:alpine
+    container_name: redis
+    environment:
+      ALLOW_EMPTY_PASSWORD: 'yes'
+    ports:
+      - "6379:6379"
+    volumes:
+      - my-redis:/var/lib/redis
 # Names our volume
 volumes:
   my-db:
   my-mongo:
+  my-redis:
